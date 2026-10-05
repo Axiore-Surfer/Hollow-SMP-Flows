@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hollow SMP — Flow System</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+*{box-sizing:border-box}
+:root{--bg:#08070d;--panel:#11101a;--muted:#aaa6ba;--border:#29243a;--purple:#8b5cf6;--pink:#ec4899}
+html{scroll-behavior:smooth}
+body{margin:0;background:
+radial-gradient(circle at 15% 0%,rgba(139,92,246,.16),transparent 30%),
+radial-gradient(circle at 85% 10%,rgba(236,72,153,.12),transparent 30%),
+var(--bg);color:#f7f5ff;font-family:Inter,system-ui,sans-serif;min-height:100vh}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.2;background-image:linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);background-size:32px 32px}
+.wrap{width:min(1180px,92%);margin:auto}
+header{text-align:center;padding:78px 0 42px}
+.kicker{display:inline-flex;padding:8px 14px;border:1px solid #4c3b71;border-radius:999px;background:#151020;color:#cbb7ff;font-size:12px;font-weight:800;letter-spacing:.15em;text-transform:uppercase}
+h1{font-size:clamp(42px,7vw,78px);margin:18px 0 10px;line-height:.95;letter-spacing:-.055em;background:linear-gradient(90deg,#a78bfa,#8b5cf6,#d946ef,#f472b6);-webkit-background-clip:text;color:transparent}
+.subtitle{color:var(--muted);font-size:16px;max-width:660px;margin:20px auto;line-height:1.7}
+.controls{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:28px}
+.pill{padding:9px 13px;border-radius:10px;background:#12101a;border:1px solid var(--border);color:#d9d5e5;font-size:12px;font-weight:700}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;padding:20px 0 70px}
+.card{--accent:#8b5cf6;position:relative;overflow:hidden;background:linear-gradient(145deg,rgba(19,17,29,.96),rgba(11,10,17,.96));border:1px solid var(--border);border-radius:20px;padding:25px;transition:.25s transform,.25s border-color,.25s box-shadow}
+.card:before{content:"";position:absolute;left:0;top:0;width:100%;height:3px;background:var(--accent)}
+.card:after{content:"";position:absolute;width:170px;height:170px;border-radius:50%;right:-85px;top:-85px;background:var(--accent);filter:blur(70px);opacity:.12}
+.card:hover{transform:translateY(-4px);border-color:color-mix(in srgb,var(--accent) 50%,#29243a);box-shadow:0 18px 45px rgba(0,0,0,.25)}
+.head{display:flex;align-items:center;justify-content:space-between;gap:15px;margin-bottom:21px}
+.name{display:flex;align-items:center;gap:12px}
+.icon{font-size:25px;width:46px;height:46px;display:grid;place-items:center;border-radius:13px;background:color-mix(in srgb,var(--accent) 13%,#11101a);border:1px solid color-mix(in srgb,var(--accent) 32%,#29243a)}
+h2{font-size:21px;margin:0;letter-spacing:-.02em}
+.role{font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--accent);font-weight:900;margin-top:4px}
+.section{padding:15px 0;border-top:1px solid #211e2d}
+.section:first-of-type{border-top:0}
+.row{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:7px}
+.label{font-size:13px;font-weight:900}
+.type{color:var(--accent);font-size:10px;font-weight:900;text-transform:uppercase;letter-spacing:.1em}
+.cd{font-size:10px;color:#e9e4f3;background:#211d2b;border:1px solid #353044;padding:5px 8px;border-radius:999px;white-space:nowrap}
+p{font-size:13px;color:#b9b5c5;line-height:1.6;margin:0}
+.diamond{--accent:#60a5fa}.resin{--accent:#fb7185}.copper{--accent:#f59e0b}.netherite{--accent:#a78bfa}.amethyst{--accent:#d946ef}.redstone{--accent:#ef4444}.gold{--accent:#facc15}.quartz{--accent:#e5e7eb}.emerald{--accent:#34d399}.lapis{--accent:#3b82f6}
+footer{text-align:center;color:#777184;font-size:12px;padding:0 0 50px}
+.brand{font-weight:900;background:linear-gradient(90deg,#8b5cf6,#ec4899);-webkit-background-clip:text;color:transparent}
+@media(max-width:760px){header{padding-top:52px}.grid{grid-template-columns:1fr}.card{padding:21px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+<div class="kicker">Hollow SMP • PvP Twist</div>
+<h1>THE FLOW SYSTEM</h1>
+<div class="subtitle">Every Flow has its own identity, strengths and combat style. Master your abilities, know your matchups, and make your Flow yours.</div>
+<div class="controls"><span class="pill">RIGHT CLICK • Ability 1</span><span class="pill">SHIFT + RIGHT CLICK • Ability 2</span><span class="pill">/flow • Your Flow Info</span></div>
+</header>
+<main class="grid">
+
+<article class="card diamond"><div class="head"><div class="name"><div class="icon">💎</div><div><h2>Diamond Flow</h2><div class="role">Mobility • Control</div></div></div></div>
+<div class="section"><div class="row"><span class="label">Swift</span><span class="type">Passive</span></div><p>Permanent Speed I.</p></div>
+<div class="section"><div class="row"><span class="label">Dash</span><span class="cd">20s CD</span></div><p>Dash forward in the direction you're looking.</p></div>
+<div class="section"><div class="row"><span class="label">Time Domain</span><span class="cd">70s CD</span></div><p>Create a domain that completely freezes enemy players caught inside for 3 seconds.</p></div></article>
+
+<article class="card resin"><div class="head"><div class="name"><div class="icon">🔥</div><div><h2>Resin Flow</h2><div class="role">Fire • Pressure</div></div></div></div>
+<div class="section"><div class="row"><span class="label">Flameborn</span><span class="type">Passive</span></div><p>Permanent Fire Resistance.</p></div>
+<div class="section"><div class="row"><span class="label">Hellfire</span><span class="cd">35s CD</span></div><p>Ignite your target with special fire that bypasses Fire Resistance and deals 4 hearts of damage.</p></div>
+<div class="section"><div class="row"><span class="label">Inferno</span><span class="cd">75s CD</span></div><p>Create a large fire-particle outline. Enemies inside lose Fire Resistance and cannot regain it for 30 seconds.</p></div></article>
+
+<article class="card copper"><div class="head"><div class="name"><div class="icon">🟠</div><div><h2>Copper Flow</h2><div class="role">Health • Lifesteal</div></div></div></div>
+<div class="section"><div class="row"><span class="label">Copper Heart</span><span class="cd">45s Trigger CD</span></div><p>Gain 4 additional permanent hearts. Below 4 hearts, gain Resistance I for 4 seconds.</p></div>
+<div class="section"><div class="row"><span class="label">Life Siphon</span><span class="cd">35s CD</span></div><p>Drain 3 hearts from an enemy over 3 seconds and heal yourself for the amount successfully drained.</p></div>
+<div class="section"><div class="row"><span class="label">Heartbreaker</span><span class="cd">70s CD</span></div><p>Temporarily steal 3 maximum hearts from an enemy for 15 seconds, adding them to your own maximum health.</p></div></article>
+
+<article class="card netherite"><div class="head"><div class="name"><div class="icon">⚫</div><div><h2>Netherite Flow</h2><div class="role">Juggernaut • Brawler</div></div></div></div>
+<div class="section"><div class="row"><span class="label">Unbreakable</span><span class="type">Passive</span></div><p>Take 10% less player damage and 25% less knockback.</p></div>
+<div class="section"><div class="row"><span class="label">Groundbreaker</span><span class="cd">35s CD</span></div><p>Slam the ground, dealing 4 hearts of damage to enemies within 5 blocks and launching them slightly upward.</p></div>
+<div class="section"><div class="row"><span class="label">Immovable Force</span><span class="cd">75s CD</span></div><p>For 10 seconds gain Strength II, 25% player damage reduction, complete knockback immunity, cobweb immunity and immunity to Diamond's Time Domain freeze.</p></div></article>
+
+<article class="card amethyst"><div class="head"><div class="name"><div class="icon">💜</div><div><h2>Amethyst Flow</h2><div class="role">Sustain • Counter</div></div></div></div>
+<div class="section"><div class="row"><span class="label">Crystal Heart</span><span class="type">Passive</span></div><p>Gain 2 extra absorption hearts.</p></div>
+<div class="section"><div class="row"><span class="label">Purify</span><span class="cd">40s CD</span></div><p>Remove nearby cobwebs and instantly heal yourself for 4 hearts.</p></div>
+<div class="section"><div class="row"><span class="label">Reflection</span><span class="cd">75s CD</span></div><p>For 6 seconds, reflect 35% of direct incoming damage back to the attacker.</p></div></article>
+
+<article class="card redstone"><div class="head"><div class="name"><div class="icon">🔴</div><div><h2>Redstone Flow</h2><div class="role">Burst • Damage</div></div></div></div>
+<div class="section"><div class="row"><span class="label">Power</span><span class="type">Passive</span></div><p>Permanent Strength I.</p></div>
+<div class="section"><div class="row"><span class="label">Critical Charge</span><span class="cd">30s CD</span></div><p>Your next melee attack within 5 seconds becomes an empowered critical hit.</p></div>
+<div class="section"><div class="row"><span class="label">Sonic Beam</span><span class="cd">70s CD</span></div><p>Charge and release a powerful sonic beam that deals 4 hearts of ability damage.</p></div></article>
+
+<article class="card gold"><div class="head"><div class="name"><div class="icon">🟡</div><div><h2>Gold Flow</h2><div class="role">Tempo • Lightning</div></div></div></div>
+<div class="section"><div class="row"><span class="label">Golden Touch</span><span class="type">Passive</span></div><p>Permanent Haste II.</p></div>
+<div class="section"><div class="row"><span class="label">Overclock</span><span class="cd">35s CD</span></div><p>Gain Haste V and Speed I for 8 seconds.</p></div>
+<div class="section"><div class="row"><span class="label">Thunderstorm</span><span class="cd">65s CD</span></div><p>Summon a thunderstorm around yourself that strikes nearby enemies with lightning.</p></div></article>
+
+<article class="card quartz"><div class="head"><div class="name"><div class="icon">⚪</div><div><h2>Quartz Flow</h2><div class="role">Webs • Combo Control</div></div></div></div>
+<div class="section"><div class="row"><span class="label">Weaver</span><span class="type">Passive</span></div><p>Permanent Weaving II.</p></div>
+<div class="section"><div class="row"><span class="label">Snare</span><span class="cd">30s CD</span></div><p>Fire a web projectile that creates a 2×2 cobweb trap when it hits an enemy.</p></div>
+<div class="section"><div class="row"><span class="label">Silk Pull</span><span class="cd">50s CD</span></div><p>Pull an enemy directly toward you and trap them in cobwebs.</p></div></article>
+
+<article class="card emerald"><div class="head"><div class="name"><div class="icon">🟢</div><div><h2>Emerald Flow</h2><div class="role">Utility • Disruption</div></div></div></div>
+<div class="section"><div class="row"><span class="label">Merchant King</span><span class="type">Passive</span></div><p>Receive extremely cheap villager trades.</p></div>
+<div class="section"><div class="row"><span class="label">Hollow Anvil</span><span class="type">Ability 1</span></div><p>Open your personal virtual anvil. Also accessible using <strong>/hanvil</strong>.</p></div>
+<div class="section"><div class="row"><span class="label">Scramble</span><span class="cd">40s CD</span></div><p>Scramble an enemy's hotbar for 5 seconds before automatically restoring its original arrangement.</p></div></article>
+
+<article class="card lapis"><div class="head"><div class="name"><div class="icon">🔵</div><div><h2>Lapis Flow</h2><div class="role">Gear • Enhancement</div></div></div></div>
+<div class="section"><div class="row"><span class="label">Arcane Protection</span><span class="type">Passive</span></div><p>Your armor and weapons lose 40% less durability.</p></div>
+<div class="section"><div class="row"><span class="label">Arcane Repair</span><span class="cd">45s CD</span></div><p>Repair 20% durability on your most damaged equipped armor piece.</p></div>
+<div class="section"><div class="row"><span class="label">Ascension</span><span class="cd">75s CD</span></div><p>For 30 seconds, your equipped armor and weapons have their enchantments upgraded by one level — such as Sharpness IV → V and Protection III → IV.</p></div></article>
+
+</main>
+<footer><span class="brand">HOLLOW SMP</span> • FLOW SYSTEM</footer>
+</div>
+</body>
+</html>
